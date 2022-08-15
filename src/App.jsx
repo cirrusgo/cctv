@@ -23,6 +23,13 @@ Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
 
+  Amplify.configure({
+
+    API: {
+      graphql_endpoint:'https://n5msff4dnbhyljjfkmeagnkqlq.appsync-api.us-east-1.amazonaws.com/graphql'
+    }
+  })
+
   const createUser = async () => {
     const attr = await Auth.currentAuthenticatedUser();
     fetch('https://ngbccow92d.execute-api.us-east-1.amazonaws.com/test?email='+attr.attributes.email);
