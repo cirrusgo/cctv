@@ -23,12 +23,16 @@ Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
 
+  console.log('before configure');
+
   Amplify.configure({
 
     API: {
       graphql_endpoint:'https://n5msff4dnbhyljjfkmeagnkqlq.appsync-api.us-east-1.amazonaws.com/graphql'
     }
   })
+
+  console.log('before API Gateway');
 
   const createUser = async () => {
     const attr = await Auth.currentAuthenticatedUser();
@@ -49,9 +53,13 @@ function App({ signOut, user }) {
 
   const [video, setVideo] = useState([])
 
+  console.log('before Appsync API');
+
+
   useEffect(() =>{
     fetchVideo()
   }, []);
+
 
   const fetchVideo = async () => {
     try {
