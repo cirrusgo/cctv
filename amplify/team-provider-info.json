@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cctvapp-dev-120145-authRole",
+      "UnauthRoleArn": "arn:aws:iam::697682926753:role/amplify-cctvapp-dev-120145-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::697682926753:role/amplify-cctvapp-dev-120145-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cctvapp-dev-120145-deployment",
+      "UnauthRoleName": "amplify-cctvapp-dev-120145-unauthRole",
+      "StackName": "amplify-cctvapp-dev-120145",
+      "StackId": "arn:aws:cloudformation:us-east-1:697682926753:stack/amplify-cctvapp-dev-120145/e6c28c70-17c1-11ed-b953-0e0e693ef321",
+      "AmplifyAppId": "d12hfm4ddo84ap",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-cctvapp-dev-120145-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "cctvappd802c208": {}
+      },
+      "storage": {
+        "cctvappcc051e28": {
+          "bucketName": "cctv-archive-cirrusgo",
+          "region": "us-east-1"
+        }
+      }
+    }
+  }
+}
