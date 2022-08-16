@@ -1,4 +1,17 @@
 {
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cctvapp-dev-120145-authRole",
+      "UnauthRoleArn": "arn:aws:iam::697682926753:role/amplify-cctvapp-dev-120145-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::697682926753:role/amplify-cctvapp-dev-120145-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cctvapp-dev-120145-deployment",
+      "UnauthRoleName": "amplify-cctvapp-dev-120145-unauthRole",
+      "StackName": "amplify-cctvapp-dev-120145",
+      "StackId": "arn:aws:cloudformation:us-east-1:697682926753:stack/amplify-cctvapp-dev-120145/e6c28c70-17c1-11ed-b953-0e0e693ef321",
+      "AmplifyAppId": "d12hfm4ddo84ap"
+    }
+  },
   "auth": {
     "cctvappd802c208": {
       "service": "Cognito",
@@ -24,17 +37,64 @@
         "verificationMechanisms": [
           "EMAIL"
         ]
-      }
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-cctvapp-dev-120145-deployment/amplify-cfn-templates/auth/cctvappd802c208-cloudformation-template.json",
+        "logicalId": "authcctvappd802c208"
+      },
+      "lastPushTimeStamp": "2022-08-16T08:02:49.509Z",
+      "output": {
+        "UserPoolId": "us-east-1_9rZj8tWRm",
+        "AppClientIDWeb": "7hhtmtvpdpj1ler4d1pid958rs",
+        "AppClientID": "4mk3l0cqqbu0th1sfp4vqf7mg",
+        "IdentityPoolId": "us-east-1:a0e1f2cd-7600-4dec-9ac1-6fc513ab405c",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:697682926753:userpool/us-east-1_9rZj8tWRm",
+        "IdentityPoolName": "cctvappd802c208_identitypool_d802c208__dev",
+        "UserPoolName": "cctvappd802c208_userpool_d802c208"
+      },
+      "lastPushDirHash": "dpHxz4NXuYHDlrtHCes2J3duGfQ="
     }
   },
   "function": {},
-  "api": {},
+  "api": {
+    "rawVideos": {
+      "service": "AppSync",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY"
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "us-east-1_9rZj8tWRm",
+                "awsRegion": "us-east-1",
+                "appIdClientRegex": null
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "ufmtfl2e5jcnxh5bdvzsln2aze",
+        "GraphQLAPIEndpointOutput": "https://qcp2scbxrrdotfttamtqqmxeoi.appsync-api.us-east-1.amazonaws.com/graphql",
+        "name": "rawVideos",
+        "region": "us-east-1",
+        "GraphQLAPIKeyOutput": "da2-osiznw2yjfc4vhyjrsb3ryvwum"
+      },
+      "lastPushTimeStamp": "2022-08-14T09:41:24.185Z"
+    }
+  },
   "storage": {
     "cctvappcc051e28": {
       "service": "S3",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
-      "dependsOn": []
+      "dependsOn": [],
+      "output": {
+        "BucketName": "cctv-archive-cirrusgo",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2022-08-14T10:56:58.644Z"
     }
   }
 }

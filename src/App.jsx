@@ -11,12 +11,12 @@ import  Amplify , {API, graphqlOperation, Storage, Auth } from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import {listRawVideos} from './graphql/queries';
-import awsExports from './aws-exports';
+import awsconfig from './aws-exports';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Filter, TransferWithinAStationSharp } from '@material-ui/icons';
 import videoPlayer from './videoPlayer';
-Amplify.configure(awsExports);
+Amplify.configure(awsconfig);
 
 
 
@@ -25,15 +25,6 @@ function App({ signOut, user }) {
 
   console.log('before configure');
 
-  Amplify.configure({
-
-    API: {
-      'aws_appsync_graphqlEndpoint':'https://n5msff4dnbhyljjfkmeagnkqlq.appsync-api.us-east-1.amazonaws.com/graphql',
-      'aws_appsync_region': 'us-east-1',
-      'aws_appsync_authenticationType': 'API_KEY',
-      'aws_appsync_apiKey': 'da2-bvbra6xeave5tfo7xluauc5adi'
-    }
-  })
 
   console.log('before API Gateway');
 
