@@ -141,7 +141,7 @@ function App({ signOut, user }) {
 
 
       <button className='signOut' onClick={signOut}>Sign out</button>
-      <div className='cirrusgo'>@cirrusgo</div>
+      <div className='cirrusgo'>Copyright © 2022 cirrusgo - All Rights Reserved.</div>
     </div>
   );
 }
