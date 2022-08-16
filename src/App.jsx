@@ -16,7 +16,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Filter, TransferWithinAStationSharp } from '@material-ui/icons';
 import videoPlayer from './videoPlayer';
+import './App.css';
 Amplify.configure(awsconfig);
+
 
 
 
@@ -87,7 +89,7 @@ function App({ signOut, user }) {
   }
 
 
-  async function renderHLS(src){
+  async function renderHLS(src,elid){
     ReactDOM.render(
       <ReactHlsPlayer
         src={src}
@@ -96,15 +98,18 @@ function App({ signOut, user }) {
         width="40%"
         height="40%"
       />,
-      document.getElementById('root')
+      document.getElementById(elid)
     );
   }
 
 
 
   return (
-    <>
-      <h1>CCTV APP</h1>
+    <div className='mainDiv'>
+      <div className='logo'>
+        <h1>CirrusEye App</h1>
+
+      </div>
       <div className="videoList">
         {video.map(vid =>{
           const unixDate=vid.recorded_at*1000;
@@ -115,24 +120,29 @@ function App({ signOut, user }) {
           return (
             <Paper variant='outlined' elevation={2}>
               <div className="videoCard">
-              <div id='root'>
+              <div>
                 <div className="videoName">File Name: {vid.file_name}</div>
                 <div className="videoCamera">Camera: {vid.camera}</div>
                 <div className="videoTime">Recorded At: {humanDateFormat}</div>
               </div>
+              
               <IconButton aria-label="download" onClick={() =>generateDownloadLink(vid.file_path,vid.file_name)}>
                 <GetAppIcon />
               </IconButton>
-              <IconButton aria-label="play" onClick={() =>renderHLS('https://cctv-transcoded.s3.amazonaws.com/'+vid.file_path.replace('.mp4','.m3u8').replace('@','%40'))}>
+              <IconButton aria-label="play" onClick={() =>renderHLS('https://cctv-transcoded.s3.amazonaws.com/'+vid.file_path.replace('.mp4','.m3u8').replace('@','%40'),vid.file_name)}>
                 <PlayCircleFilledIcon />
               </IconButton>
               </div>
+              <div className='video' id={vid.file_name}></div>
             </Paper>
           )
         })}
       </div>
-      <button onClick={signOut}>Sign out</button>
-    </>
+
+
+      <button className='signOut' onClick={signOut}>Sign out</button>
+      <div className='cirrusgo'>@cirrusgo</div>
+    </div>
   );
 }
 
